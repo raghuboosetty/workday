@@ -19,8 +19,6 @@ class Workday:
     self.address_line_1 = 'Narsingi' # addressSection_addressLine1
     self.address_city = 'Hyderabad' # addressSection_city
     self.address_postal_code = '500089' #addressSection_postalCode
-    # addressSection_countryRegion
-    # phone-device-type
     self.phone_number = '9177167375' # phone-number
     
     
