@@ -172,15 +172,21 @@ class Workday:
       print("Exception: 'Visa Sponsorship already selected'")
     
   def fillform_page_4(self):
-    self.driver.find_element(By.CSS_SELECTOR, "button[type='button'][data-automation-id='gender']").click()
-    time.sleep(2)
-    self.driver.find_element(By.XPATH, "//div[text()='Male']").click()
-    time.sleep(2)
+    try:
+      self.driver.find_element(By.CSS_SELECTOR, "button[type='button'][data-automation-id='gender']").click()
+      time.sleep(2)
+      self.driver.find_element(By.XPATH, "//div[text()='Male']").click()
+      time.sleep(2)
+    except:
+      print("Exception: 'Gender not present'")
 
-    self.driver.find_element(By.CSS_SELECTOR, "button[type='button'][data-automation-id='nationality']").click()
-    time.sleep(2)
-    self.driver.find_element(By.XPATH, "//div[text()='India']").click()
-    time.sleep(2)
+    try:
+      self.driver.find_element(By.CSS_SELECTOR, "button[type='button'][data-automation-id='nationality']").click()
+      time.sleep(2)
+      self.driver.find_element(By.XPATH, "//div[text()='India']").click()
+      time.sleep(2)
+    except:
+      print("Exception: 'Nationality not present")
 
     agreement_checkbox = self.driver.find_element(By.CSS_SELECTOR, "input[type='checkbox'][data-automation-id='agreementCheckbox']")
     agreement_checkbox.location_once_scrolled_into_view
@@ -217,6 +223,11 @@ class Workday:
   def click_next(self):
     button = self.wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "button[data-automation-id='bottom-navigation-next-button']")))
     button.click()
+    try:
+      error_button = self.driver.find_element(By.CSS_SELECTOR, "button[data-automation-id='errorBanner']")
+      time.sleep(60)
+    except:
+      print("Exception: 'No Errors'")
     time.sleep(10)
     
   def run(self):
@@ -247,10 +258,10 @@ class Workday:
       print("NoSuchElementException")
 
     time.sleep(10)
-    self.fillform_page_1()
+    # self.fillform_page_1()
     self.click_next()
     
-    self.fillform_page_2()
+    # self.fillform_page_2()
     self.click_next()
     
     self.fillform_page_3()
