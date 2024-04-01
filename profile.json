@@ -1,0 +1,69 @@
+
+{
+  "signedup_companies_list": ["verizon", "gapinc", "crowdstrike"],
+  "email": "raghu.boos@gmail.com",
+  "first_name": "Raghu",
+  "password": "Workdaylab@144",
+  "family_name": "Boosetty",
+  "first_name_local": "Raghu",
+  "address_line_1": "NCC Urban One",
+  "address_line_2": "Narsingi",
+  "address_line_3": "Kokapet",
+  "address_city": "Hyderabad",
+  "address_postal_code": "500089",
+  "phone_number": "9177167375",
+  "linkedin_question": "https: //www.linkedin.com/in/raghuboosetty/",
+  "resume_path": "/Users/raghuboosetty/Documents/Workspace/python/workday/RaghuBoosetty.pdf",
+  "work_experiences": [
+    {
+      "company": "Amazon",
+      "start_year": "2022", 
+      "start_month": "Aug", 
+      "end_year": "2023",  
+      "end_month": "Oct",
+      "job_title": "Software Development Manager",
+      "location": "Hyderabad",
+      "role_description": "Completed the migration of one of the key projects in the data platform team to standardize the transport requests from 300+ clients. It involved the migration of the datastore from Sable to DynamoDB and orchestrating the application to 3 different microservices. Achieved this with a team of 12. Additionally, I’ve mentored 7 interns."
+    },
+    {
+      "company": "Copart",
+      "start_year": "2019", 
+      "start_month": "Feb", 
+      "end_year": "2022",  
+      "end_month": "Aug",
+      "job_title": "Engineering Manager",
+      "location": "Hyderabad",
+      "role_description": "Delivered five projects four of them from scratch. An insurance portal project for Germany was delivered in a record one month. Built Claims Hub Portal - a total loss claims system for the UK’s first in the market, with a team of 5. Recognized here. Created a portal Virtual Walkthrough - that helps streamline the process of going to auction for vehicles, with a team of 3. Now used by an in-house team of 300. As a lead, contributions to the company’s biggest projects for Title transfer in the US helped reduce the overall lot life cycle time by 50%."
+    },
+    {
+      "company": "beckNF Technologies",
+      "start_year": "2018", 
+      "start_month": "May", 
+      "end_year": "2019",  
+      "end_month": "Jan",
+      "job_title": "Co-Founder & CTO",
+      "location": "Hyderabad",
+      "role_description": "I built an in-house product (LEAST), an online collaboration tool that helps organizations increase productivity. The end-to-end product was developed in less than 6 months, with a team of 8, mostly freshers."
+    },
+    {
+      "company": "RubyEffect Software Solutions",
+      "start_year": "2010", 
+      "start_month": "Sep", 
+      "end_year": "2018",  
+      "end_month": "Apr",
+      "job_title": "Principal Software Engineer & CTO",
+      "location": "Hyderabad",
+      "role_description": "Advanced through several promotions over the years. Played a major role in the company’s growth and expansion. Successfully delivered about 30 projects in 8 years, by coding, managing a team, and meeting deadlines. Architected the back end and server configuration for most projects in the company. I fine-tuned the performance of microsites of a large-scale US-based parking application ParkMobile. Improved the microsite load times by 50-60%, by fixing the memory leaks. Single-handedly designed and upgraded the entire server infrastructure from Heroku to AWS for FindMeACard, using VPC, Auto-Scaling, ALB, CloudFront, S3, RDS, Route53, and CodeDeploy. Integrated payment gateway, built call sites, and the brand alerts feature for Brandrep Integrated full-text search into applications with gems like Elasticsearch, Searchify, and Searchkick in Rails."
+    },
+    {
+      "company": "Teqnium Consultancy Services",
+      "start_year": "2009", 
+      "start_month": "Aug", 
+      "end_year": "2010",  
+      "end_month": "Apr",
+      "job_title": "Software Engineer",
+      "location": "Hyderabad",
+      "role_description": "Worked on e-learning content development. Integrating templates/mockups given in PSD to Flash with ActionScript 2 and 3. Converting executables with the SWFs."
+    }
+  ]
+}
