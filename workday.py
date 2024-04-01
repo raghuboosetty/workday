@@ -70,13 +70,19 @@ class Workday:
     time.sleep(2)
     self.driver.find_element(By.CSS_SELECTOR, "input[type='text'][data-automation-id='addressSection_addressLine1']").send_keys(self.profile['address_line_1'])
     
-    self.driver.find_element(By.CSS_SELECTOR, "input[type='text'][data-automation-id='addressSection_addressLine2']").clear()
-    time.sleep(2)
-    self.driver.find_element(By.CSS_SELECTOR, "input[type='text'][data-automation-id='addressSection_addressLine2']").send_keys(self.profile['address_line_2'])
+    try:
+      self.driver.find_element(By.CSS_SELECTOR, "input[type='text'][data-automation-id='addressSection_addressLine2']").clear()
+      time.sleep(2)
+      self.driver.find_element(By.CSS_SELECTOR, "input[type='text'][data-automation-id='addressSection_addressLine2']").send_keys(self.profile['address_line_2'])
+    except:
+      print("Exception: 'No addressSection_addressLine2'")
     
-    self.driver.find_element(By.CSS_SELECTOR, "input[type='text'][data-automation-id='addressSection_addressLine3']").clear()
-    time.sleep(2)
-    self.driver.find_element(By.CSS_SELECTOR, "input[type='text'][data-automation-id='addressSection_addressLine3']").send_keys(self.profile['address_line_3'])
+    try:
+      self.driver.find_element(By.CSS_SELECTOR, "input[type='text'][data-automation-id='addressSection_addressLine3']").clear()
+      time.sleep(2)
+      self.driver.find_element(By.CSS_SELECTOR, "input[type='text'][data-automation-id='addressSection_addressLine3']").send_keys(self.profile['address_line_3'])
+    except:
+      print("Exception: 'No addressSection_addressLine3'")
   
     self.driver.find_element(By.CSS_SELECTOR, "input[type='text'][data-automation-id='addressSection_city']").clear()
     time.sleep(2)
@@ -86,10 +92,15 @@ class Workday:
     time.sleep(2)
     self.driver.find_element(By.CSS_SELECTOR, "input[type='text'][data-automation-id='addressSection_postalCode']").send_keys(self.profile['address_postal_code'])
 
-    self.driver.find_element(By.CSS_SELECTOR, "button[type='button'][data-automation-id='addressSection_countryRegion']").click()
-    time.sleep(5)
-    self.driver.find_element(By.XPATH, "//div[text()='Telangana']").click()
-    time.sleep(2)
+    self.driver.find_element(By.CSS_SELECTOR, "input[type='text'][data-automation-id='addressSection_postalCode']").location_once_scrolled_into_view
+    
+    try:
+      self.driver.find_element(By.CSS_SELECTOR, "button[type='button'][data-automation-id='addressSection_countryRegion']").click()
+      time.sleep(5)
+      self.driver.find_element(By.XPATH, "//div[text()='Telangana']").click()
+      time.sleep(2)
+    except:
+      print("Exception: 'No addressSection_countryRegion'")
     
     self.driver.find_element(By.CSS_SELECTOR, "button[type='button'][data-automation-id='phone-device-type']").click()
     time.sleep(5)
@@ -111,7 +122,10 @@ class Workday:
     
     for work_experience_index, work_experience in enumerate(self.profile['work_experiences']):
       if work_experience_index == 0:
-        self.driver.find_element(By.CSS_SELECTOR, "button[aria-label='Add Work Experience'][data-automation-id='Add']").click()
+        try:
+          self.driver.find_element(By.CSS_SELECTOR, "button[aria-label='Add Work Experience'][data-automation-id='Add']").click()
+        except:
+          print("Exception: 'Add button not found'")
       else:
         self.driver.find_element(By.CSS_SELECTOR, "button[aria-label='Add Another Work Experience'][data-automation-id='Add Another']").click()
         
@@ -121,8 +135,8 @@ class Workday:
       self.fill_work_experience(work_experience)
       time.sleep(2)
     
-    skill_prompt = self.driver.find_element(By.CSS_SELECTOR, "div[data-automation-id='formField-skillsPrompt']")
-    skill_prompt.location_once_scrolled_into_view
+    resume_section = self.driver.find_element(By.CSS_SELECTOR, "div[data-automation-id='resumeSection']")
+    resume_section.location_once_scrolled_into_view
     time.sleep(2)
       
     delete_resumes = self.driver.find_elements(By.CSS_SELECTOR, "button[data-automation-id='delete-file']")
@@ -175,11 +189,14 @@ class Workday:
   def fill_work_experience(self, work_experience):
     work_experience['div'].find_element(By.CSS_SELECTOR, "input[type='text'][data-automation-id='jobTitle']").send_keys(work_experience['job_title'])
     work_experience['div'].find_element(By.CSS_SELECTOR, "input[type='text'][data-automation-id='company']").send_keys(work_experience['company'])
-    location = work_experience['div'].find_element(By.CSS_SELECTOR, "input[type='text'][data-automation-id='location']")
-    location.send_keys(work_experience['location'])
+    try:
+      location = work_experience['div'].find_element(By.CSS_SELECTOR, "input[type='text'][data-automation-id='location']")
+      location.send_keys(work_experience['location'])
+    except:
+      print("Exception: 'no location field in experience'")
     work_experience['div'].find_element(By.CSS_SELECTOR, "textarea[data-automation-id='description']").send_keys(work_experience['role_description'])
     
-    location.location_once_scrolled_into_view
+    # location.location_once_scrolled_into_view
     
     start_date_div = work_experience['div'].find_element(By.CSS_SELECTOR, "div[data-automation-id='formField-startDate']")
     start_date_div.find_element(By.CSS_SELECTOR, "div[role='button'][data-automation-id='dateIcon']").click()
