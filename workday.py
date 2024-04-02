@@ -26,7 +26,10 @@ class Workday:
     self.driver.find_element(By.CSS_SELECTOR, "input[type='text'][data-automation-id='email']").send_keys(self.profile['email'])
     self.driver.find_element(By.CSS_SELECTOR, "input[type='password'][data-automation-id='password']").send_keys(self.profile['password'])
     self.driver.find_element(By.CSS_SELECTOR, "input[type='password'][data-automation-id='verifyPassword']").send_keys(self.profile['password'])
-    self.driver.find_element(By.CSS_SELECTOR, "input[type='checkbox'][data-automation-id='createAccountCheckbox']").click()
+    try:
+      self.driver.find_element(By.CSS_SELECTOR, "input[type='checkbox'][data-automation-id='createAccountCheckbox']").click()
+    except:
+      print("Exception: 'There is no checkbox for signup'")
     button = self.wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "div[role='button'][aria-label='Create Account'][data-automation-id='click_filter']")))
     time.sleep(1)
     button.click()
@@ -150,9 +153,12 @@ class Workday:
     file_input.send_keys(self.profile['resume_path'])
     time.sleep(10)
     
-    linkedin_question = self.driver.find_element(By.CSS_SELECTOR, "input[type='text'][data-automation-id='linkedinQuestion']")
-    linkedin_question.clear()
-    linkedin_question.send_keys(self.profile['linkedin_question'])
+    try:
+      linkedin_question = self.driver.find_element(By.CSS_SELECTOR, "input[type='text'][data-automation-id='linkedinQuestion']")
+      linkedin_question.clear()
+      linkedin_question.send_keys(self.profile['linkedin_question'])
+    except:
+      print("Exception: 'No Linkedin input'")
     
   def fillform_page_3(self):
     try:
@@ -225,9 +231,10 @@ class Workday:
     button.click()
     try:
       error_button = self.driver.find_element(By.CSS_SELECTOR, "button[data-automation-id='errorBanner']")
+      print("Exception: 'Errors on page. Please resolve and submit manually. You have 60 seconds to do so!'")
       time.sleep(60)
     except:
-      print("Exception: 'No Errors'")
+      print("No Errors")
     time.sleep(10)
     
   def run(self):
@@ -261,7 +268,7 @@ class Workday:
     # self.fillform_page_1()
     self.click_next()
     
-    # self.fillform_page_2()
+    self.fillform_page_2()
     self.click_next()
     
     self.fillform_page_3()
