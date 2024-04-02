@@ -265,7 +265,7 @@ class Workday:
       print("NoSuchElementException")
 
     time.sleep(10)
-    # self.fillform_page_1()
+    self.fillform_page_1()
     self.click_next()
     
     self.fillform_page_2()
