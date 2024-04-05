@@ -105,10 +105,13 @@ class Workday:
     except:
       print("Exception: 'No addressSection_countryRegion'")
     
-    self.driver.find_element(By.CSS_SELECTOR, "button[type='button'][data-automation-id='phone-device-type']").click()
-    time.sleep(5)
-    self.driver.find_element(By.XPATH, "//div[text()='Mobile']").click()
-    time.sleep(2)
+    try:
+      self.driver.find_element(By.CSS_SELECTOR, "button[type='button'][data-automation-id='phone-device-type']").click()
+      time.sleep(5)
+      self.driver.find_element(By.XPATH, "//div[text()='Mobile']").click()
+      time.sleep(2)
+    except:
+      print("Exception: 'Mobile not present'")
     
     self.driver.find_element(By.CSS_SELECTOR, "input[type='text'][data-automation-id='phone-number']").clear()
     time.sleep(2)
@@ -194,9 +197,12 @@ class Workday:
     except:
       print("Exception: 'Nationality not present")
 
-    agreement_checkbox = self.driver.find_element(By.CSS_SELECTOR, "input[type='checkbox'][data-automation-id='agreementCheckbox']")
-    agreement_checkbox.location_once_scrolled_into_view
-    agreement_checkbox.click()
+    try:
+      agreement_checkbox = self.driver.find_element(By.CSS_SELECTOR, "input[type='checkbox'][data-automation-id='agreementCheckbox']")
+      agreement_checkbox.location_once_scrolled_into_view
+      agreement_checkbox.click()
+    except:
+      print("Exception: agreementCheckbox not present")
 
   def fill_work_experience(self, work_experience):
     work_experience['div'].find_element(By.CSS_SELECTOR, "input[type='text'][data-automation-id='jobTitle']").send_keys(work_experience['job_title'])
@@ -280,7 +286,7 @@ class Workday:
     # review and submit
     self.click_next()
     
-    # Wait for 10 seconds
+    # Wait for 1 minute
     time.sleep(60)
 
     # Close the browser
