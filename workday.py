@@ -43,9 +43,12 @@ class Workday:
     button.click()
 
   def fillform_page_1(self):
-    # put radio button at the beginning as it sometimes goes to unclickable state
-    self.driver.switch_to.active_element
-    self.driver.find_element(By.CSS_SELECTOR, "input[type='radio'][data-uxi-element-id='radio_2']").click()
+    try:
+      # put radio button at the beginning as it sometimes goes to unclickable state
+      self.driver.switch_to.active_element
+      self.driver.find_element(By.CSS_SELECTOR, "input[type='radio'][data-uxi-element-id='radio_2']").click()
+    except:
+      print("Exception: 'No radio_2 button'")
 
     try:
       self.driver.find_element(By.CSS_SELECTOR, "div[data-automation-id='multiSelectContainer']").click()
