@@ -1,7 +1,7 @@
 # Python script for Workday jobs
 
 ## Details
-The Python scripts apply to jobs that are on Workday using the Selenium library and Chrome web driver.
+The Python script to apply for the jobs that are on Workday using the Selenium library and Chrome web driver.
 
 ### profile.json
 Has all the details related to your profile, you can clone it and change the creds and details as per your need
