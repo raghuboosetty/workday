@@ -132,11 +132,11 @@ class Workday:
     for work_experience_index, work_experience in enumerate(self.profile['work_experiences']):
       if work_experience_index == 0:
         try:
-          self.driver.find_element(By.CSS_SELECTOR, "button[aria-label='Add Work Experience'][data-automation-id='Add']").click()
+          self.driver.find_element(By.CSS_SELECTOR, "button[data-automation-id='Add']").click()
         except:
           print("Exception: 'Add button not found'")
       else:
-        self.driver.find_element(By.CSS_SELECTOR, "button[aria-label='Add Another Work Experience'][data-automation-id='Add Another']").click()
+        self.driver.find_element(By.CSS_SELECTOR, "button[data-automation-id='Add Another']").click()
         
       time.sleep(2)
       work_experience_div = self.driver.find_element(By.CSS_SELECTOR, "div[data-automation-id='workExperience-"+str(work_experience_index+1)+"']")
