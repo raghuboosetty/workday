@@ -1,5 +1,5 @@
 {
-  "signedup_companies_list": ["verizon", "gapinc", "crowdstrike", "spgi", "jll", "wd1", "mastercard", "warnerbros", "clarivate", "maersk", "workday", "boeing", "expedia", "salesforce"],
+  "signedup_companies_list": ["verizon", "gapinc", "crowdstrike", "spgi", "jll", "wd1", "mastercard", "warnerbros", "clarivate", "maersk", "workday", "boeing", "expedia", "salesforce", "thomsonreuters"],
   "email": "raghu.boos@gmail.com",
   "first_name": "Raghu",
   "password": "Workdaylab@144",
@@ -13,6 +13,7 @@
   "phone_number": "9177167375",
   "linkedin_question": "https://www.linkedin.com/in/raghuboosetty/",
   "resume_path": "/Users/raghuboosetty/Documents/Workspace/python/workday/RaghuBoosetty.pdf",
+  "education": "Holy Mary Institute of Technology and Science",
   "work_experiences": [
     {
       "company": "Amazon",
