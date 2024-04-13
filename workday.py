@@ -11,7 +11,7 @@ import time
 class Workday:
   def __init__(self, url):
     self.url = url
-    self.profile = json.load(open('profile.json'))
+    self.profile = json.load(open('utils/profile.json'))
 
     # Set up Selenium WebDriver
     self.driver = webdriver.Chrome()  # You need to have chromedriver installed
