@@ -1,4 +1,6 @@
-import json
+import ipdb
+import time
+import sys
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.select import Select
@@ -6,13 +8,14 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from urllib.parse import urlparse
 from getpass import getpass
-import time
+from config import Config
 
 class Workday:
   def __init__(self, url):
     self.url = url
-    self.profile = json.load(open('utils/profile.json'))
-
+    self.profile = Config('utils/profile.yaml').load_profile()
+    self.companies_file = Config('utils/companies.txt')
+        
     # Set up Selenium WebDriver
     self.driver = webdriver.Chrome()  # You need to have chromedriver installed
     self.wait = WebDriverWait(self.driver, 10)
@@ -249,7 +252,7 @@ class Workday:
   def run(self):
     parsed_url = urlparse(self.url)
     company = parsed_url.netloc.split('.')[0]
-    existing_company = company in self.profile['signedup_companies_list']
+    existing_company = company in self.companies_file.read_companies()
         
     self.driver.get(self.url) # Open a webpage
     time.sleep(5)
@@ -265,8 +268,14 @@ class Workday:
       self.signin()
     else:
       self.signup()
+      self.companies_file.write_company(company)
 
     time.sleep(5)
+    if len(self.driver.find_elements(By.CSS_SELECTOR, "div[data-automation-id='alreadyApplied']")) > 0:
+      print("alreadyApplied job, exiting the program...")
+      self.driver.quit()
+      sys.exit()
+    
     try:
       button = self.driver.find_element(By.CSS_SELECTOR, "a[role='button'][data-automation-id='applyManually']")
       button.click()
@@ -289,8 +298,8 @@ class Workday:
     # review and submit
     self.click_next()
     
-    # Wait for 1 minute
-    time.sleep(60)
+    # Wait for half minute
+    time.sleep(30)
 
     # Close the browser
     self.driver.quit()
@@ -299,4 +308,5 @@ print("Please share Workday URL:")
 url = str(input())
 
 workday = Workday(url)
+# ipdb.set_trace()
 workday.run()
