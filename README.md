@@ -6,13 +6,14 @@ The Python script to apply for the jobs that are on Workday using the Selenium l
 ### profile.json
 Has all the details related to your profile, you can clone it and change the creds and details as per your need
 
-### YourName.pdf
+### YourResume.pdf
 That's the resume that you need to replace with yours and update in profile.json
 
+
 ## How to Run the script
-> $ /usr/bin/python3 workday.py
+> $ python3 workday.py
 > 
-> $ Please share Workday URL:
+> $ Please share the Workday URL:
 
 
 ## Background
