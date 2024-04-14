@@ -1,20 +1,28 @@
 # Python script for Workday jobs
 
-## Details
 The Python script to apply for the jobs that are on Workday using the Selenium library and Chrome web driver.
 
-### profile.json
-Has all the details related to your profile, you can clone it and change the creds and details as per your need
+## Config
+1. _config/profile.yaml_ - Has all the details related to your profile, you can clone it and change the creds(_email_, _password_, etc..) and other details as per your need
+2. _config/Resume.pdf_ - That's the resume that you need to replace with yours and update _resume_path_ in _config/profile.yaml_ file
 
-### YourResume.pdf
-That's the resume that you need to replace with yours and update in profile.json
-
+## Prerequisites
+> $ python3 -m pip install --upgrade pip
+> 
+> $ python3 -m pip install --upgrade pip setuptools wheel
+> 
+> $ python3 -m pip install "ipdb"
+> 
+> $ python3 -m pip install "pyyaml"
 
 ## How to Run the script
 > $ python3 workday.py
 > 
 > $ Please share the Workday URL:
+>
 
+#### Example Job URL 
+[https://gapinc.wd1.myworkdayjobs.com/GAPINC/job/Spoke---Hyderabad/Software-Engineer_R164023/apply?source=JB-10340](https://gapinc.wd1.myworkdayjobs.com/GAPINC/job/Spoke---Hyderabad/Software-Engineer_R164023/apply?source=JB-10340)
 
 ## Background
 There are too many companies that are using Workday as their job board. I have seen that the pattern for all these jobs is 90% similar, and applying on Workday is a real pain in the a**. 
