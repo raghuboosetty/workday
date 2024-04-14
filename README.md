@@ -24,6 +24,11 @@ The Python script to apply for the jobs that are on Workday using the Selenium l
 #### Example Job URL 
 [https://gapinc.wd1.myworkdayjobs.com/GAPINC/job/Spoke---Hyderabad/Software-Engineer_R164023/apply?source=JB-10340](https://gapinc.wd1.myworkdayjobs.com/GAPINC/job/Spoke---Hyderabad/Software-Engineer_R164023/apply?source=JB-10340)
 
+## Notes
+1. Some workday jobs have few additional mandatory fields in which case the submit may fail but the code rescues it and waits for 60 seconds for the user to manually **fix** the errors and **_Submit_** the form. Please note that if the errors are not fixed manually then the script will eventually fail.
+2. If you run the script again for some reason then it clears all the fields and then adds the information from the _config/profile.yaml_ file. So, please don't assume that it would start from the step where it failed when you re-run the script.
+3. If you want to skip the steps then go to '_def run_' method in _workday.py_ and comment out the '_fillform_page_1_' or '_fillform_page_2_' or which ever step you want to skip.
+
 ## Background
 There are too many companies that are using Workday as their job board. I have seen that the pattern for all these jobs is 90% similar, and applying on Workday is a real pain in the a**. 
 It mandates you to log in which requires signup and it never segregates the candidate's profile, your profile is limited to a company and is not carried forward to any other company. Not sure why all MNCs are onboarding to Workday. 
