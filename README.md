@@ -1,4 +1,4 @@
-# Python script for Workday jobs
+# Python script to apply for jobs on Workday
 
 The Python script to apply for the jobs that are on Workday using the Selenium library and Chrome web driver.
 
