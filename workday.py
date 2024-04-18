@@ -262,11 +262,14 @@ class Workday:
     except:
       print("Exception: 'No button for Cookies!")
     
-    if existing_company:
-      self.signin()
-    else:
-      self.signup()
-      self.companies_file.write_company(company)
+    try:
+      if existing_company:
+        self.signin()
+      else:
+        self.signup()
+        self.companies_file.write_company(company)
+    except:
+      print("No Signup/Signin - Apply without Signin")
 
     time.sleep(5)
     if len(self.driver.find_elements(By.CSS_SELECTOR, "div[data-automation-id='alreadyApplied']")) > 0:
